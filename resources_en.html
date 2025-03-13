@@ -320,104 +320,8 @@
             </div>
 
             <div class="resources-content">
-                <div id="journals" class="resource-section">
-                    <h3>Mathematics Journals</h3>
-                    <p>Comprehensive list of mathematics journals indexed in Scopus. Data sourced from SCImago Journal Rank (SJR) 2023.</p>
-                    
-                    <div class="journal-search">
-                        <input type="text" id="journalSearch" placeholder="Search journals by title, publisher, or subject...">
-                        <button id="searchButton">Search</button>
-                    </div>
-                    
-                    <div class="journal-filters">
-                        <button class="active">All</button>
-                        <button>Q1 Journals</button>
-                        <button>Q2 Journals</button>
-                        <button>Q3 Journals</button>
-                        <button>Q4 Journals</button>
-                        <button>Open Access</button>
-                    </div>
-                    
-                    <div class="table-container">
-                        
-                             <!-- Remplacez le contenu du tableau actuel avec celui-ci -->
-<table class="journal-table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>SJR</th>
-            <th>Quartile</th>
-            <th>H-index</th>
-            <th>Publisher</th>
-            <th>Country</th>
-            <th>Type</th>
-        </tr>
-    </thead>
-    <tbody id="journalTableBody">
-        <!-- Top Journals (Q1) -->
-        <tr class="journal-row page-1">
-            <td><a href="https://annals.math.princeton.edu/" target="_blank">Annals of Mathematics</a></td>
-            <td>9.217</td>
-            <td>Q1</td>
-            <td>108</td>
-            <td>Princeton University</td>
-            <td>United States</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-1">
-            <td><a href="https://www.ams.org/journals/jams/all_issues.html" target="_blank">Journal of the American Mathematical Society</a></td>
-            <td>6.875</td>
-            <td>Q1</td>
-            <td>89</td>
-            <td>American Mathematical Society</td>
-            <td>United States</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-1">
-            <td><a href="https://www.springer.com/journal/40993" target="_blank">Research in Mathematical Sciences</a></td>
-            <td>4.918</td>
-            <td>Q1</td>
-            <td>31</td>
-            <td>Springer</td>
-            <td>Germany</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-1">
-            <td><a href="https://www.springer.com/journal/222" target="_blank">Inventiones Mathematicae</a></td>
-            <td>4.813</td>
-            <td>Q1</td>
-            <td>114</td>
-            <td>Springer</td>
-            <td>Germany</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-1">
-            <td><a href="https://projecteuclid.org/euclid.acta" target="_blank">Acta Mathematica</a></td>
-            <td>4.759</td>
-            <td>Q1</td>
-            <td>87</td>
-            <td>Institut Mittag-Leffler</td>
-            <td>Sweden</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-1">
-            <td><a href="https://www.sciencedirect.com/journal/journal-of-functional-analysis" target="_blank">Journal of Functional Analysis</a></td>
-            <td>2.513</td>
-            <td>Q1</td>
-            <td>106</td>
-            <td>Elsevier</td>
-            <td>Netherlands</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-1">
-            <td><a href="https://msp.org/ant/about/journal/about.html" target="_blank">Algebra and Number Theory</a></td>
-            <td>2.398</td>
-            <td>Q1</td>
-            <td>30</td>
-            <td>Mathematical Sciences Publishers</td>
-            <td>United States</td>
-            <td>Journal</td>
-        </tr>
+            
+          
         
         <!-- Q2 Journals -->
         <tr class="journal-row page-1">
@@ -448,83 +352,199 @@
             <td>Journal</td>
         </tr>
         
-        <!-- Page 2 Journals -->
-        <tr class="journal-row page-2">
-            <td><a href="https://www.springer.com/journal/10884" target="_blank">Journal of Dynamics and Differential Equations</a></td>
-            <td>0.981</td>
-            <td>Q2</td>
-            <td>51</td>
-            <td>Springer</td>
-            <td>United States</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-2">
-            <td><a href="https://www.springer.com/journal/40687" target="_blank">Research in the Mathematical Sciences</a></td>
-            <td>1.754</td>
-            <td>Q1</td>
-            <td>26</td>
-            <td>Springer</td>
-            <td>United Kingdom</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-2">
-            <td><a href="https://www.sciencedirect.com/journal/topology-and-its-applications" target="_blank">Topology and its Applications</a></td>
-            <td>0.667</td>
-            <td>Q2</td>
-            <td>55</td>
-            <td>Elsevier</td>
-            <td>Netherlands</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-2">
-            <td><a href="https://academic.oup.com/qjmath" target="_blank">Quarterly Journal of Mathematics</a></td>
-            <td>1.212</td>
-            <td>Q1</td>
-            <td>39</td>
-            <td>Oxford University Press</td>
-            <td>United Kingdom</td>
-            <td>Journal</td>
-        </tr>
-        <tr class="journal-row page-2">
-            <td><a href="https://www.sciencedirect.com/journal/journal-of-combinatorial-theory-series-a" target="_blank">Journal of Combinatorial Theory, Series A</a></td>
-            <td>1.487</td>
-            <td>Q1</td>
-            <td>74</td>
-            <td>Elsevier</td>
-            <td>United States</td>
-            <td>Journal</td>
-        </tr>
-    </tbody>
-</table>
-
-<!-- Remplacez la pagination actuelle avec celle-ci -->
-<div class="pagination" id="journalPagination">
-    <button class="active" data-page="1">1</button>
-    <button data-page="2">2</button>
-    <button data-page="3">3</button>
-    <button data-page="4">4</button>
-    <button data-page="5">5</button>
-    <button data-page="dots" disabled>...</button>
-    <button data-page="next">></button>
+<div id="journals" class="resource-section">
+    <h3>Mathematics Journals</h3>
+    <p>Comprehensive list of mathematics journals indexed in Scopus. Data sourced from SCImago Journal Rank (SJR) 2023.</p>
+    
+    <div class="journal-search">
+        <input type="text" id="journalSearch" placeholder="Search journals by title, publisher, or subject...">
+        <button id="searchButton">Search</button>
+    </div>
+    
+    <div class="journal-filters">
+        <button class="active">All</button>
+        <button>Q1 Journals</button>
+        <button>Q2 Journals</button>
+        <button>Q3 Journals</button>
+        <button>Q4 Journals</button>
+        <button>Open Access</button>
+    </div>
+    
+    <div class="table-container">
+        <table class="journal-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>SJR</th>
+                    <th>Quartile</th>
+                    <th>H-index</th>
+                    <th>Publisher</th>
+                    <th>Country</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody id="journalTableBody">
+                <!-- Top Journals (Q1) -->
+                <tr class="journal-row page-1">
+                    <td><a href="https://annals.math.princeton.edu/" target="_blank">Annals of Mathematics</a></td>
+                    <td>9.217</td>
+                    <td>Q1</td>
+                    <td>108</td>
+                    <td>Princeton University</td>
+                    <td>United States</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.ams.org/journals/jams/all_issues.html" target="_blank">Journal of the American Mathematical Society</a></td>
+                    <td>6.875</td>
+                    <td>Q1</td>
+                    <td>89</td>
+                    <td>American Mathematical Society</td>
+                    <td>United States</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.springer.com/journal/40993" target="_blank">Research in Mathematical Sciences</a></td>
+                    <td>4.918</td>
+                    <td>Q1</td>
+                    <td>31</td>
+                    <td>Springer</td>
+                    <td>Germany</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.springer.com/journal/222" target="_blank">Inventiones Mathematicae</a></td>
+                    <td>4.813</td>
+                    <td>Q1</td>
+                    <td>114</td>
+                    <td>Springer</td>
+                    <td>Germany</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://projecteuclid.org/euclid.acta" target="_blank">Acta Mathematica</a></td>
+                    <td>4.759</td>
+                    <td>Q1</td>
+                    <td>87</td>
+                    <td>Institut Mittag-Leffler</td>
+                    <td>Sweden</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.sciencedirect.com/journal/journal-of-functional-analysis" target="_blank">Journal of Functional Analysis</a></td>
+                    <td>2.513</td>
+                    <td>Q1</td>
+                    <td>106</td>
+                    <td>Elsevier</td>
+                    <td>Netherlands</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://msp.org/ant/about/journal/about.html" target="_blank">Algebra and Number Theory</a></td>
+                    <td>2.398</td>
+                    <td>Q1</td>
+                    <td>30</td>
+                    <td>Mathematical Sciences Publishers</td>
+                    <td>United States</td>
+                    <td>Journal</td>
+                </tr>
+                
+                <!-- Q2 Journals -->
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.springer.com/journal/13163" target="_blank">Journal of Algebraic Combinatorics</a></td>
+                    <td>1.055</td>
+                    <td>Q2</td>
+                    <td>48</td>
+                    <td>Springer</td>
+                    <td>Netherlands</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.sciencedirect.com/journal/linear-algebra-and-its-applications" target="_blank">Linear Algebra and its Applications</a></td>
+                    <td>1.021</td>
+                    <td>Q2</td>
+                    <td>121</td>
+                    <td>Elsevier</td>
+                    <td>Netherlands</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-1">
+                    <td><a href="https://www.sciencedirect.com/journal/discrete-mathematics" target="_blank">Discrete Mathematics</a></td>
+                    <td>0.725</td>
+                    <td>Q2</td>
+                    <td>85</td>
+                    <td>Elsevier</td>
+                    <td>Netherlands</td>
+                    <td>Journal</td>
+                </tr>
+                
+                <!-- Page 2 Journals -->
+                <tr class="journal-row page-2">
+                    <td><a href="https://www.springer.com/journal/10884" target="_blank">Journal of Dynamics and Differential Equations</a></td>
+                    <td>0.981</td>
+                    <td>Q2</td>
+                    <td>51</td>
+                    <td>Springer</td>
+                    <td>United States</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-2">
+                    <td><a href="https://www.springer.com/journal/40687" target="_blank">Research in the Mathematical Sciences</a></td>
+                    <td>1.754</td>
+                    <td>Q1</td>
+                    <td>26</td>
+                    <td>Springer</td>
+                    <td>United Kingdom</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-2">
+                    <td><a href="https://www.sciencedirect.com/journal/topology-and-its-applications" target="_blank">Topology and its Applications</a></td>
+                    <td>0.667</td>
+                    <td>Q2</td>
+                    <td>55</td>
+                    <td>Elsevier</td>
+                    <td>Netherlands</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-2">
+                    <td><a href="https://academic.oup.com/qjmath" target="_blank">Quarterly Journal of Mathematics</a></td>
+                    <td>1.212</td>
+                    <td>Q1</td>
+                    <td>39</td>
+                    <td>Oxford University Press</td>
+                    <td>United Kingdom</td>
+                    <td>Journal</td>
+                </tr>
+                <tr class="journal-row page-2">
+                    <td><a href="https://www.sciencedirect.com/journal/journal-of-combinatorial-theory-series-a" target="_blank">Journal of Combinatorial Theory, Series A</a></td>
+                    <td>1.487</td>
+                    <td>Q1</td>
+                    <td>74</td>
+                    <td>Elsevier</td>
+                    <td>United States</td>
+                    <td>Journal</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="pagination" id="journalPagination">
+        <button class="active" data-page="1">1</button>
+        <button data-page="2">2</button>
+        <button data-page="3">3</button>
+        <button data-page="4">4</button>
+        <button data-page="5">5</button>
+        <button data-page="dots" disabled>...</button>
+        <button data-page="next">></button>
+    </div>
+    
+    <p style="margin-top: 20px;">
+        <strong>Note:</strong> This table shows a sample of mathematics journals. For the complete list of mathematics journals with detailed metrics, please consult the <a href="https://www.scimagojr.com/journalrank.php?category=2600" target="_blank">SCImago Journal Rank (Mathematics)</a> website.
+    </p>
 </div>
-                        </table>
-                    </div>
-                    
-                    <div class="pagination" id="journalPagination">
-                        <button class="active" data-page="1">1</button>
-                        <button data-page="2">2</button>
-                        <button data-page="3">3</button>
-                        <button data-page="4">4</button>
-                        <button data-page="5">5</button>
-                        <button data-page="dots" disabled>...</button>
-                        <button data-page="next">></button>
-                    </div>
-                    
-                    <p style="margin-top: 20px;">
-                        <strong>Note:</strong> This table shows a sample of mathematics journals. For the complete list of mathematics journals with detailed metrics, please consult the <a href="https://www.scimagojr.com/journalrank.php?category=2600" target="_blank">SCImago Journal Rank (Mathematics)</a> website.
-                    </p>
-                </div>
 
+
+                
                 <div id="research" class="resource-section">
                     <h3>Research Databases</h3>
                     <p>Essential databases and search engines for mathematical research.</p>
