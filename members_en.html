@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members - Moroccan Mathematicians Network</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MathJax for mathematical formulas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .member-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-card h3 {
+            color: #2056a8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-card .title {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .member-card .institution {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-card .specialization {
+            margin-bottom: 1rem;
+        }
+        
+        .member-card .contact {
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .member-card .contact a {
+            color: #2056a8;
+        }
+        
+        .filter-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        
+        .filter-section h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-options button {
+            background-color: white;
+            border: 1px solid #2056a8;
+            color: #2056a8;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-options button:hover, .filter-options button.active {
+            background-color: #2056a8;
+            color: white;
+        }
+        
+        .founder-card {
+            background-color: #f0f7ff;
+            border: 2px solid #2056a8;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background-color: #2056a8;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MMN</h1>
+            <p>Moroccan Mathematicians Network</p>
+        </div>
+        <!-- Navigation menu removed as requested -->
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Our Members</h2>
+            <p>Discover the mathematicians who are part of our network</p>
+        </section>
+
+        <section class="filter-section">
+            <h3>Filter by Specialization</h3>
+            <div class="filter-options">
+                <button class="active">All</button>
+                <button>Algebra</button>
+                <button>Analysis</button>
+                <button>Applied Mathematics</button>
+                <button>Geometry</button>
+                <button>Number Theory</button>
+                <button>Probability & Statistics</button>
+            </div>
+        </section>
+
+        <section class="member-grid">
+            <!-- Founder: Yassine Ait Mohamed -->
+            <div class="member-card founder-card">
+                <h3>Yassine Ait Mohamed <span class="role-badge">Founder</span></h3>
+                <div class="title">PhD Student</div>
+                <div class="institution">University of Sherbrooke</div>
+                <div class="specialization">
+                    <strong>Specialization:</strong> Algebraic Geometry, Lie Theory, Mathematical Physics
+                </div>
+                <p>Founder of the Moroccan Mathematicians Network (MMN). Research interests lie at the intersection of algebraic geometry, Lie theory, and mathematical physics.</p>
+                <div class="contact">
+                    <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">Email</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Join Our Network</h2>
+            <p>Are you a mathematician from Morocco or working on topics related to Morocco? We invite you to join our growing community.</p>
+            <p>Benefits of membership include:</p>
+            <ul>
+                <li>Collaboration opportunities with fellow mathematicians</li>
+                <li>Access to conferences, workshops, and seminars</li>
+                <li>Sharing of research findings and resources</li>
+                <li>Mentorship opportunities for young researchers</li>
+            </ul>
+            <p>To join, please contact us at <a href="mailto:moroccan.mathematiciannetork@gmail.com">moroccan.mathematiciannetork@gmail.com</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Moroccan Mathematicians Network</p>
+        <div class="social">
+            <a href="https://www.linkedin.com/groups/14622272/" target="_blank">LinkedIn</a>
+            <a href="https://x.com/MoroccanN44415" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61573770495839" target="_blank">Facebook</a>
+        </div>
+    </footer>
+</body>
+</html>
