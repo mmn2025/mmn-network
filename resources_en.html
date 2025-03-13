@@ -208,8 +208,6 @@
         .journal-table {
             width: 100%;
             border-collapse: collapse;
-            overflow-x: auto;
-            display: block;
         }
         
         .journal-table th {
@@ -239,6 +237,13 @@
             content: "↓";
         }
         
+        /* Additional styles for table responsiveness */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        /* Pagination styles */
         .pagination {
             display: flex;
             justify-content: center;
@@ -250,22 +255,40 @@
             background-color: white;
             border: 1px solid #2056a8;
             color: #2056a8;
-            width: 30px;
+            min-width: 30px;
             height: 30px;
             border-radius: 3px;
             cursor: pointer;
             transition: all 0.3s ease;
+            padding: 0 10px;
         }
         
         .pagination button.active {
             background-color: #2056a8;
             color: white;
+            font-weight: bold;
         }
         
-        /* Additional styles for table responsiveness */
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: 20px;
+        .pagination button:hover:not(.active):not(.disabled) {
+            background-color: #e0eaef;
+        }
+        
+        .pagination button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Journal row visibility classes */
+        .journal-row {
+            display: table-row;
+        }
+        
+        .journal-row.hidden {
+            display: none;
+        }
+        
+        .journal-row.journal-filtered-out {
+            display: none;
         }
     </style>
 </head>
@@ -328,9 +351,9 @@
                                     <th>Type</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="journalTableBody">
                                 <!-- Top Journals (Q1) -->
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://annals.math.princeton.edu/" target="_blank">Annals of Mathematics</a></td>
                                     <td>9.217</td>
                                     <td>Q1</td>
@@ -339,7 +362,7 @@
                                     <td>United States</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.ams.org/journals/jams/all_issues.html" target="_blank">Journal of the American Mathematical Society</a></td>
                                     <td>6.875</td>
                                     <td>Q1</td>
@@ -348,7 +371,7 @@
                                     <td>United States</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.springer.com/journal/40993" target="_blank">Research in Mathematical Sciences</a></td>
                                     <td>4.918</td>
                                     <td>Q1</td>
@@ -357,7 +380,7 @@
                                     <td>Germany</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.springer.com/journal/222" target="_blank">Inventiones Mathematicae</a></td>
                                     <td>4.813</td>
                                     <td>Q1</td>
@@ -366,7 +389,7 @@
                                     <td>Germany</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://projecteuclid.org/euclid.acta" target="_blank">Acta Mathematica</a></td>
                                     <td>4.759</td>
                                     <td>Q1</td>
@@ -375,7 +398,7 @@
                                     <td>Sweden</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.sciencedirect.com/journal/journal-of-functional-analysis" target="_blank">Journal of Functional Analysis</a></td>
                                     <td>2.513</td>
                                     <td>Q1</td>
@@ -384,7 +407,7 @@
                                     <td>Netherlands</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://msp.org/ant/about/journal/about.html" target="_blank">Algebra and Number Theory</a></td>
                                     <td>2.398</td>
                                     <td>Q1</td>
@@ -395,7 +418,7 @@
                                 </tr>
                                 
                                 <!-- Q2 Journals -->
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.springer.com/journal/13163" target="_blank">Journal of Algebraic Combinatorics</a></td>
                                     <td>1.055</td>
                                     <td>Q2</td>
@@ -404,7 +427,7 @@
                                     <td>Netherlands</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.sciencedirect.com/journal/linear-algebra-and-its-applications" target="_blank">Linear Algebra and its Applications</a></td>
                                     <td>1.021</td>
                                     <td>Q2</td>
@@ -413,7 +436,7 @@
                                     <td>Netherlands</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-1">
                                     <td><a href="https://www.sciencedirect.com/journal/discrete-mathematics" target="_blank">Discrete Mathematics</a></td>
                                     <td>0.725</td>
                                     <td>Q2</td>
@@ -423,8 +446,8 @@
                                     <td>Journal</td>
                                 </tr>
                                 
-                                <!-- Additional Journals -->
-                                <tr>
+                                <!-- Page 2 Journals -->
+                                <tr class="journal-row page-2">
                                     <td><a href="https://www.springer.com/journal/10884" target="_blank">Journal of Dynamics and Differential Equations</a></td>
                                     <td>0.981</td>
                                     <td>Q2</td>
@@ -433,7 +456,7 @@
                                     <td>United States</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-2">
                                     <td><a href="https://www.springer.com/journal/40687" target="_blank">Research in the Mathematical Sciences</a></td>
                                     <td>1.754</td>
                                     <td>Q1</td>
@@ -442,7 +465,7 @@
                                     <td>United Kingdom</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-2">
                                     <td><a href="https://www.sciencedirect.com/journal/topology-and-its-applications" target="_blank">Topology and its Applications</a></td>
                                     <td>0.667</td>
                                     <td>Q2</td>
@@ -451,7 +474,7 @@
                                     <td>Netherlands</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-2">
                                     <td><a href="https://academic.oup.com/qjmath" target="_blank">Quarterly Journal of Mathematics</a></td>
                                     <td>1.212</td>
                                     <td>Q1</td>
@@ -460,7 +483,7 @@
                                     <td>United Kingdom</td>
                                     <td>Journal</td>
                                 </tr>
-                                <tr>
+                                <tr class="journal-row page-2">
                                     <td><a href="https://www.sciencedirect.com/journal/journal-of-combinatorial-theory-series-a" target="_blank">Journal of Combinatorial Theory, Series A</a></td>
                                     <td>1.487</td>
                                     <td>Q1</td>
@@ -473,14 +496,14 @@
                         </table>
                     </div>
                     
-                    <div class="pagination">
-                        <button class="active">1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>4</button>
-                        <button>5</button>
-                        <button>...</button>
-                        <button>></button>
+                    <div class="pagination" id="journalPagination">
+                        <button class="active" data-page="1">1</button>
+                        <button data-page="2">2</button>
+                        <button data-page="3">3</button>
+                        <button data-page="4">4</button>
+                        <button data-page="5">5</button>
+                        <button data-page="dots" disabled>...</button>
+                        <button data-page="next">></button>
                     </div>
                     
                     <p style="margin-top: 20px;">
@@ -727,134 +750,215 @@
                     
                     <div class="resource-list">
                         <div class="resource-item">
-                            <h4>MIT OpenCourseWare (Mathematics)</h4>
-                            <div class="description">
-                                Free and open publication of material from MIT courses, covering undergraduate and graduate mathematics courses.
-                            </div>
-                            <div class="link">
-                                <a href="https://ocw.mit.edu/search/?d=Mathematics" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>Khan Academy (Mathematics)</h4>
-                            <div class="description">
-                                Free educational resources including lessons, exercises, and instructional videos covering K-12 mathematics, calculus, linear algebra, and more.
-                            </div>
-                            <div class="link">
-                                <a href="https://www.khanacademy.org/math" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>3Blue1Brown</h4>
-                            <div class="description">
-                                Animated mathematics videos with an emphasis on visual understanding of concepts in linear algebra, calculus, and other fields.
-                            </div>
-                            <div class="link">
-                                <a href="https://www.3blue1brown.com/" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>MAA Curriculum Inspirations</h4>
-                            <div class="description">
-                                Problems, solutions, and teaching resources inspired by mathematical competitions like the AMC.
-                            </div>
-                            <div class="link">
-                                <a href="https://www.maa.org/math-competitions/teachers/curriculum-inspirations" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>NCTM Illuminations</h4>
-                            <div class="description">
-                                Resources for teaching and learning mathematics including interactive tools, lesson plans, and activities.
-                            </div>
-                            <div class="link">
-                                <a href="https://illuminations.nctm.org/" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>Brilliant</h4>
-                            <div class="description">
-                                Interactive courses to build problem-solving skills in mathematics, science, and computer science.
-                            </div>
-                            <div class="link">
-                                <a href="https://brilliant.org/courses/math/" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <h4>MIT OpenCourse
+<!-- Voici le JavaScript qui manquait dans resources_en.html -->
 
-                <div id="openaccess" class="resource-section">
-                    <h3>Open Access Resources</h3>
-                    <p>Freely available educational and research materials for mathematics.</p>
-                    
-                    <div class="resource-list">
-                        <div class="resource-item">
-                            <h4>Project Euclid</h4>
-                            <div class="description">
-                                Platform for independent and society journals, books, and conference proceedings in mathematics and statistics with many open access publications.
-                            </div>
-                            <div class="link">
-                                <a href="https://projecteuclid.org/" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>Mathematical Sciences Publishers (MSP)</h4>
-                            <div class="description">
-                                Non-profit publisher of high-quality mathematical journals with a focus on affordability and accessibility.
-                            </div>
-                            <div class="link">
-                                <a href="https://msp.org/" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>AMS Open Math Notes</h4>
-                            <div class="description">
-                                Collection of freely downloadable mathematical works in progress including course notes, textbooks, and research expositions.
-                            </div>
-                            <div class="link">
-                                <a href="https://www.ams.org/open-math-notes" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>DOAJ (Mathematics journals)</h4>
-                            <div class="description">
-                                Directory of Open Access Journals listing high-quality, peer-reviewed open access journals in mathematics.
-                            </div>
-                            <div class="link">
-                                <a href="https://doaj.org/subjects/mathematics" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4>Open Textbook Library (Mathematics)</h4>
-                            <div class="description">
-                                Collection of free, peer-reviewed, and openly-licensed textbooks in mathematics and other disciplines.
-                            </div>
-                            <div class="link">
-                                <a href="https://open.umn.edu/opentextbooks/subjects/mathematics" target="_blank">Access Resources</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Moroccan Mathematicians Network</p>
-        <div class="social">
-            <a href="https://www.linkedin.com/groups/14622272/" target="_blank">LinkedIn</a>
-            <a href="https://x.com/MoroccanN44415" target="_blank">Twitter</a>
-            <a href="https://www.facebook.com/profile.php?id=61573770495839" target="_blank">Facebook</a>
-        </div>
-    </footer>
+<script>
+// Journal Search Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Journal filtering 
+    const searchButton = document.getElementById('searchButton');
+    const journalSearch = document.getElementById('journalSearch');
+    const journalRows = document.querySelectorAll('.journal-table tbody tr');
+    const filterButtons = document.querySelectorAll('.journal-filters button');
+    const paginationButtons = document.querySelectorAll('.pagination button');
+    
+    // Handle search
+    searchButton.addEventListener('click', function() {
+        const searchTerm = journalSearch.value.toLowerCase();
+        
+        journalRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                row.classList.remove('journal-filtered-out');
+            } else {
+                row.classList.add('journal-filtered-out');
+            }
+        });
+        
+        updatePagination();
+    });
+    
+    // Search on enter key
+    journalSearch.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            searchButton.click();
+        }
+    });
+    
+    // Handle filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.textContent.trim();
+            
+            journalRows.forEach(row => {
+                if (filter === 'All') {
+                    row.classList.remove('journal-filtered-out');
+                } else if (filter === 'Q1 Journals' && row.children[2].textContent === 'Q1') {
+                    row.classList.remove('journal-filtered-out');
+                } else if (filter === 'Q2 Journals' && row.children[2].textContent === 'Q2') {
+                    row.classList.remove('journal-filtered-out');
+                } else if (filter === 'Q3 Journals' && row.children[2].textContent === 'Q3') {
+                    row.classList.remove('journal-filtered-out');
+                } else if (filter === 'Q4 Journals' && row.children[2].textContent === 'Q4') {
+                    row.classList.remove('journal-filtered-out');
+                } else if (filter === 'Open Access' && row.children[6].textContent.includes('Open Access')) {
+                    row.classList.remove('journal-filtered-out');
+                } else {
+                    row.classList.add('journal-filtered-out');
+                }
+            });
+            
+            updatePagination();
+        });
+    });
+    
+    // Handle pagination
+    function showPage(pageNum) {
+        // Hide all rows
+        journalRows.forEach(row => {
+            row.classList.add('hidden');
+        });
+        
+        // Show rows for current page that aren't filtered out
+        const visibleRows = Array.from(journalRows).filter(row => !row.classList.contains('journal-filtered-out'));
+        const rowsPerPage = 10;
+        const startIdx = (pageNum - 1) * rowsPerPage;
+        const endIdx = startIdx + rowsPerPage;
+        
+        for (let i = startIdx; i < endIdx && i < visibleRows.length; i++) {
+            visibleRows[i].classList.remove('hidden');
+        }
+        
+        // Update active pagination button
+        paginationButtons.forEach(button => {
+            if (button.dataset.page === pageNum.toString()) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    }
+    
+    function updatePagination() {
+        const visibleRows = Array.from(journalRows).filter(row => !row.classList.contains('journal-filtered-out'));
+        const rowsPerPage = 10;
+        const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
+        
+        // Update pagination buttons based on total pages
+        const paginationContainer = document.querySelector('.pagination');
+        paginationContainer.innerHTML = '';
+        
+        for (let i = 1; i <= Math.min(5, totalPages); i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.dataset.page = i;
+            if (i === 1) button.classList.add('active');
+            button.addEventListener('click', function() {
+                showPage(parseInt(this.dataset.page));
+            });
+            paginationContainer.appendChild(button);
+        }
+        
+        if (totalPages > 5) {
+            const dotsButton = document.createElement('button');
+            dotsButton.textContent = '...';
+            dotsButton.dataset.page = 'dots';
+            dotsButton.disabled = true;
+            paginationContainer.appendChild(dotsButton);
+            
+            const lastPageButton = document.createElement('button');
+            lastPageButton.textContent = totalPages;
+            lastPageButton.dataset.page = totalPages;
+            lastPageButton.addEventListener('click', function() {
+                showPage(parseInt(this.dataset.page));
+            });
+            paginationContainer.appendChild(lastPageButton);
+        }
+        
+        if (totalPages > 1) {
+            const nextButton = document.createElement('button');
+            nextButton.textContent = '>';
+            nextButton.dataset.page = 'next';
+            nextButton.addEventListener('click', function() {
+                const activePage = document.querySelector('.pagination button.active');
+                const nextPage = parseInt(activePage.dataset.page) + 1;
+                if (nextPage <= totalPages) {
+                    showPage(nextPage);
+                }
+            });
+            paginationContainer.appendChild(nextButton);
+        }
+        
+        // Show first page
+        showPage(1);
+    }
+    
+    // Initialize table sorting
+    const tableHeaders = document.querySelectorAll('.journal-table th');
+    tableHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const table = this.closest('table');
+            const index = Array.from(this.parentNode.children).indexOf(this);
+            const currentIsAsc = this.classList.contains('asc');
+            
+            // Remove sort classes from all headers
+            tableHeaders.forEach(h => {
+                h.classList.remove('asc', 'desc');
+            });
+            
+            // Add appropriate sort class to current header
+            this.classList.add(currentIsAsc ? 'desc' : 'asc');
+            
+            // Sort the table
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const sortedRows = rows.sort((a, b) => {
+                const aValue = a.children[index].textContent.trim();
+                const bValue = b.children[index].textContent.trim();
+                
+                // Check if sorting numbers
+                if (!isNaN(aValue) && !isNaN(bValue)) {
+                    return currentIsAsc ? 
+                        parseFloat(bValue) - parseFloat(aValue) : 
+                        parseFloat(aValue) - parseFloat(bValue);
+                }
+                
+                // Otherwise sort alphabetically
+                return currentIsAsc ? 
+                    bValue.localeCompare(aValue) : 
+                    aValue.localeCompare(bValue);
+            });
+            
+            // Reorder the table rows
+            const tbody = table.querySelector('tbody');
+            sortedRows.forEach(row => {
+                tbody.appendChild(row);
+            });
+        });
+    });
+    
+    // Initialize with page 1
+    showPage(1);
+    
+    // Navigation highlighting
+    const navLinks = document.querySelectorAll('.resources-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+        });
+    });
+});
+</script>
 </body>
 </html>
+                                
