@@ -208,6 +208,8 @@
         .journal-table {
             width: 100%;
             border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
         }
         
         .journal-table th {
@@ -215,6 +217,8 @@
             color: #2056a8;
             font-weight: bold;
             cursor: pointer;
+            position: sticky;
+            top: 0;
         }
         
         .journal-table th:hover {
@@ -256,6 +260,12 @@
         .pagination button.active {
             background-color: #2056a8;
             color: white;
+        }
+        
+        /* Additional styles for table responsiveness */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -305,114 +315,166 @@
                         <button>Open Access</button>
                     </div>
                     
-                    <table class="journal-table">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>SJR</th>
-                                <th>Quartile</th>
-                                <th>H-index</th>
-                                <th>Publisher</th>
-                                <th>Country</th>
-                                <th>Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="https://annals.math.princeton.edu/" target="_blank">Annals of Mathematics</a></td>
-                                <td>9.217</td>
-                                <td>Q1</td>
-                                <td>108</td>
-                                <td>Princeton University</td>
-                                <td>United States</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.ams.org/journals/jams/all_issues.html" target="_blank">Journal of the American Mathematical Society</a></td>
-                                <td>6.875</td>
-                                <td>Q1</td>
-                                <td>89</td>
-                                <td>American Mathematical Society</td>
-                                <td>United States</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.springer.com/journal/40993" target="_blank">Research in Mathematical Sciences</a></td>
-                                <td>4.918</td>
-                                <td>Q1</td>
-                                <td>31</td>
-                                <td>Springer</td>
-                                <td>Germany</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.springer.com/journal/222" target="_blank">Inventiones Mathematicae</a></td>
-                                <td>4.813</td>
-                                <td>Q1</td>
-                                <td>114</td>
-                                <td>Springer</td>
-                                <td>Germany</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://projecteuclid.org/euclid.acta" target="_blank">Acta Mathematica</a></td>
-                                <td>4.759</td>
-                                <td>Q1</td>
-                                <td>87</td>
-                                <td>Institut Mittag-Leffler</td>
-                                <td>Sweden</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.sciencedirect.com/journal/journal-of-functional-analysis" target="_blank">Journal of Functional Analysis</a></td>
-                                <td>2.513</td>
-                                <td>Q1</td>
-                                <td>106</td>
-                                <td>Elsevier</td>
-                                <td>Netherlands</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://msp.org/ant/about/journal/about.html" target="_blank">Algebra and Number Theory</a></td>
-                                <td>2.398</td>
-                                <td>Q1</td>
-                                <td>30</td>
-                                <td>Mathematical Sciences Publishers</td>
-                                <td>United States</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.springer.com/journal/13163" target="_blank">Journal of Algebraic Combinatorics</a></td>
-                                <td>1.055</td>
-                                <td>Q2</td>
-                                <td>48</td>
-                                <td>Springer</td>
-                                <td>Netherlands</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.sciencedirect.com/journal/linear-algebra-and-its-applications" target="_blank">Linear Algebra and its Applications</a></td>
-                                <td>1.021</td>
-                                <td>Q2</td>
-                                <td>121</td>
-                                <td>Elsevier</td>
-                                <td>Netherlands</td>
-                                <td>Journal</td>
-                            </tr>
-                            <tr>
-                                <td><a href="https://www.sciencedirect.com/journal/discrete-mathematics" target="_blank">Discrete Mathematics</a></td>
-                                <td>0.725</td>
-                                <td>Q2</td>
-                                <td>85</td>
-                                <td>Elsevier</td>
-                                <td>Netherlands</td>
-                                <td>Journal</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="journal-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>SJR</th>
+                                    <th>Quartile</th>
+                                    <th>H-index</th>
+                                    <th>Publisher</th>
+                                    <th>Country</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Top Journals (Q1) -->
+                                <tr>
+                                    <td><a href="https://annals.math.princeton.edu/" target="_blank">Annals of Mathematics</a></td>
+                                    <td>9.217</td>
+                                    <td>Q1</td>
+                                    <td>108</td>
+                                    <td>Princeton University</td>
+                                    <td>United States</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ams.org/journals/jams/all_issues.html" target="_blank">Journal of the American Mathematical Society</a></td>
+                                    <td>6.875</td>
+                                    <td>Q1</td>
+                                    <td>89</td>
+                                    <td>American Mathematical Society</td>
+                                    <td>United States</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.springer.com/journal/40993" target="_blank">Research in Mathematical Sciences</a></td>
+                                    <td>4.918</td>
+                                    <td>Q1</td>
+                                    <td>31</td>
+                                    <td>Springer</td>
+                                    <td>Germany</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.springer.com/journal/222" target="_blank">Inventiones Mathematicae</a></td>
+                                    <td>4.813</td>
+                                    <td>Q1</td>
+                                    <td>114</td>
+                                    <td>Springer</td>
+                                    <td>Germany</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://projecteuclid.org/euclid.acta" target="_blank">Acta Mathematica</a></td>
+                                    <td>4.759</td>
+                                    <td>Q1</td>
+                                    <td>87</td>
+                                    <td>Institut Mittag-Leffler</td>
+                                    <td>Sweden</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.sciencedirect.com/journal/journal-of-functional-analysis" target="_blank">Journal of Functional Analysis</a></td>
+                                    <td>2.513</td>
+                                    <td>Q1</td>
+                                    <td>106</td>
+                                    <td>Elsevier</td>
+                                    <td>Netherlands</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://msp.org/ant/about/journal/about.html" target="_blank">Algebra and Number Theory</a></td>
+                                    <td>2.398</td>
+                                    <td>Q1</td>
+                                    <td>30</td>
+                                    <td>Mathematical Sciences Publishers</td>
+                                    <td>United States</td>
+                                    <td>Journal</td>
+                                </tr>
+                                
+                                <!-- Q2 Journals -->
+                                <tr>
+                                    <td><a href="https://www.springer.com/journal/13163" target="_blank">Journal of Algebraic Combinatorics</a></td>
+                                    <td>1.055</td>
+                                    <td>Q2</td>
+                                    <td>48</td>
+                                    <td>Springer</td>
+                                    <td>Netherlands</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.sciencedirect.com/journal/linear-algebra-and-its-applications" target="_blank">Linear Algebra and its Applications</a></td>
+                                    <td>1.021</td>
+                                    <td>Q2</td>
+                                    <td>121</td>
+                                    <td>Elsevier</td>
+                                    <td>Netherlands</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.sciencedirect.com/journal/discrete-mathematics" target="_blank">Discrete Mathematics</a></td>
+                                    <td>0.725</td>
+                                    <td>Q2</td>
+                                    <td>85</td>
+                                    <td>Elsevier</td>
+                                    <td>Netherlands</td>
+                                    <td>Journal</td>
+                                </tr>
+                                
+                                <!-- Additional Journals -->
+                                <tr>
+                                    <td><a href="https://www.springer.com/journal/10884" target="_blank">Journal of Dynamics and Differential Equations</a></td>
+                                    <td>0.981</td>
+                                    <td>Q2</td>
+                                    <td>51</td>
+                                    <td>Springer</td>
+                                    <td>United States</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.springer.com/journal/40687" target="_blank">Research in the Mathematical Sciences</a></td>
+                                    <td>1.754</td>
+                                    <td>Q1</td>
+                                    <td>26</td>
+                                    <td>Springer</td>
+                                    <td>United Kingdom</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.sciencedirect.com/journal/topology-and-its-applications" target="_blank">Topology and its Applications</a></td>
+                                    <td>0.667</td>
+                                    <td>Q2</td>
+                                    <td>55</td>
+                                    <td>Elsevier</td>
+                                    <td>Netherlands</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://academic.oup.com/qjmath" target="_blank">Quarterly Journal of Mathematics</a></td>
+                                    <td>1.212</td>
+                                    <td>Q1</td>
+                                    <td>39</td>
+                                    <td>Oxford University Press</td>
+                                    <td>United Kingdom</td>
+                                    <td>Journal</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.sciencedirect.com/journal/journal-of-combinatorial-theory-series-a" target="_blank">Journal of Combinatorial Theory, Series A</a></td>
+                                    <td>1.487</td>
+                                    <td>Q1</td>
+                                    <td>74</td>
+                                    <td>Elsevier</td>
+                                    <td>United States</td>
+                                    <td>Journal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     
                     <div class="pagination">
-                        <button>1</button>
+                        <button class="active">1</button>
                         <button>2</button>
                         <button>3</button>
                         <button>4</button>
@@ -422,7 +484,7 @@
                     </div>
                     
                     <p style="margin-top: 20px;">
-                        <strong>Note:</strong> This table shows a small subset of mathematics journals. For the complete list of mathematics journals with detailed metrics, please consult the <a href="https://www.scimagojr.com/journalrank.php?category=2600" target="_blank">SCImago Journal Rank (Mathematics)</a> website.
+                        <strong>Note:</strong> This table shows a sample of mathematics journals. For the complete list of mathematics journals with detailed metrics, please consult the <a href="https://www.scimagojr.com/journalrank.php?category=2600" target="_blank">SCImago Journal Rank (Mathematics)</a> website.
                     </p>
                 </div>
 
@@ -522,72 +584,74 @@
                     <h3>Software & Tools</h3>
                     <p>Mathematical software and computational tools for research and teaching.</p>
                     
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tool</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                                <th>Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>MATLAB</td>
-                                <td>Computational</td>
-                                <td>Programming and numeric computing platform used for algorithm development, data analysis, visualization, and numerical computation</td>
-                                <td><a href="https://www.mathworks.com/products/matlab.html" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>Wolfram Mathematica</td>
-                                <td>Symbolic</td>
-                                <td>Computer algebra system with broad functionality for symbolic computation, numerical computation, visualization, and application development</td>
-                                <td><a href="https://www.wolfram.com/mathematica/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>SageMath</td>
-                                <td>Open Source</td>
-                                <td>Free open-source mathematics software system that builds on many existing packages, including NumPy, SciPy, matplotlib, Sympy, Maxima, and more</td>
-                                <td><a href="https://www.sagemath.org/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>R</td>
-                                <td>Statistics</td>
-                                <td>Language and environment for statistical computing and graphics widely used among statisticians and data miners</td>
-                                <td><a href="https://www.r-project.org/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>Python with NumPy/SciPy</td>
-                                <td>Programming</td>
-                                <td>Programming language with scientific computing libraries for mathematics, science, and engineering</td>
-                                <td><a href="https://numpy.org/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>GeoGebra</td>
-                                <td>Visualization</td>
-                                <td>Interactive geometry, algebra, statistics, and calculus application for learning and teaching</td>
-                                <td><a href="https://www.geogebra.org/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>Maple</td>
-                                <td>Symbolic</td>
-                                <td>Technical computing software for mathematics, engineering, and sciences with symbolic and numeric computation</td>
-                                <td><a href="https://www.maplesoft.com/products/Maple/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>LaTeX</td>
-                                <td>Document Preparation</td>
-                                <td>High-quality typesetting system for mathematical and scientific documents</td>
-                                <td><a href="https://www.latex-project.org/" target="_blank">Website</a></td>
-                            </tr>
-                            <tr>
-                                <td>Overleaf</td>
-                                <td>LaTeX Editor</td>
-                                <td>Online LaTeX editor that's easy to use with real-time collaboration and publishing tools</td>
-                                <td><a href="https://www.overleaf.com/" target="_blank">Website</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tool</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MATLAB</td>
+                                    <td>Computational</td>
+                                    <td>Programming and numeric computing platform used for algorithm development, data analysis, visualization, and numerical computation</td>
+                                    <td><a href="https://www.mathworks.com/products/matlab.html" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Wolfram Mathematica</td>
+                                    <td>Symbolic</td>
+                                    <td>Computer algebra system with broad functionality for symbolic computation, numerical computation, visualization, and application development</td>
+                                    <td><a href="https://www.wolfram.com/mathematica/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SageMath</td>
+                                    <td>Open Source</td>
+                                    <td>Free open-source mathematics software system that builds on many existing packages, including NumPy, SciPy, matplotlib, Sympy, Maxima, and more</td>
+                                    <td><a href="https://www.sagemath.org/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>R</td>
+                                    <td>Statistics</td>
+                                    <td>Language and environment for statistical computing and graphics widely used among statisticians and data miners</td>
+                                    <td><a href="https://www.r-project.org/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Python with NumPy/SciPy</td>
+                                    <td>Programming</td>
+                                    <td>Programming language with scientific computing libraries for mathematics, science, and engineering</td>
+                                    <td><a href="https://numpy.org/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>GeoGebra</td>
+                                    <td>Visualization</td>
+                                    <td>Interactive geometry, algebra, statistics, and calculus application for learning and teaching</td>
+                                    <td><a href="https://www.geogebra.org/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Maple</td>
+                                    <td>Symbolic</td>
+                                    <td>Technical computing software for mathematics, engineering, and sciences with symbolic and numeric computation</td>
+                                    <td><a href="https://www.maplesoft.com/products/Maple/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>LaTeX</td>
+                                    <td>Document Preparation</td>
+                                    <td>High-quality typesetting system for mathematical and scientific documents</td>
+                                    <td><a href="https://www.latex-project.org/" target="_blank">Website</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Overleaf</td>
+                                    <td>LaTeX Editor</td>
+                                    <td>Online LaTeX editor that's easy to use with real-time collaboration and publishing tools</td>
+                                    <td><a href="https://www.overleaf.com/" target="_blank">Website</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="associations" class="resource-section">
@@ -760,4 +824,37 @@
                         </div>
                         
                         <div class="resource-item">
-                            <h4>DOAJ (Mathematics journals)</h
+                            <h4>DOAJ (Mathematics journals)</h4>
+                            <div class="description">
+                                Directory of Open Access Journals listing high-quality, peer-reviewed open access journals in mathematics.
+                            </div>
+                            <div class="link">
+                                <a href="https://doaj.org/subjects/mathematics" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Open Textbook Library (Mathematics)</h4>
+                            <div class="description">
+                                Collection of free, peer-reviewed, and openly-licensed textbooks in mathematics and other disciplines.
+                            </div>
+                            <div class="link">
+                                <a href="https://open.umn.edu/opentextbooks/subjects/mathematics" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Moroccan Mathematicians Network</p>
+        <div class="social">
+            <a href="https://www.linkedin.com/groups/14622272/" target="_blank">LinkedIn</a>
+            <a href="https://x.com/MoroccanN44415" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61573770495839" target="_blank">Facebook</a>
+        </div>
+    </footer>
+</body>
+</html>
