@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Moroccan Mathematicians Network</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MathJax for mathematical formulas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .resources-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .resources-container {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+        
+        .resources-nav {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            align-self: start;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .resources-nav h3 {
+            color: #2056a8;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .resources-nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .resources-nav ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resources-nav ul li a {
+            display: block;
+            padding: 0.5rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .resources-nav ul li a:hover, .resources-nav ul li a.active {
+            background-color: #e0eaef;
+            color: #2056a8;
+        }
+        
+        .resources-content {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        
+        .resource-section {
+            margin-bottom: 3rem;
+        }
+        
+        .resource-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .resource-section h3 {
+            color: #2056a8;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .resource-list {
+            margin-top: 1.5rem;
+        }
+        
+        .resource-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+        
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-item h4 {
+            color: #2056a8;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .resource-item .description {
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .resource-item .link a {
+            color: #2056a8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .resource-item .link a:hover {
+            text-decoration: underline;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .tags span {
+            background-color: #e0eaef;
+            color: #2056a8;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        table th, table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table th {
+            background-color: #e0eaef;
+            color: #2056a8;
+            font-weight: bold;
+        }
+        
+        table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Styles for journal listings */
+        .journal-search {
+            margin-bottom: 20px;
+        }
+        
+        .journal-search input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .journal-search button {
+            background-color: #2056a8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .journal-search button:hover {
+            background-color: #163d7a;
+        }
+        
+        .journal-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .journal-filters button {
+            background-color: white;
+            border: 1px solid #2056a8;
+            color: #2056a8;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .journal-filters button.active {
+            background-color: #2056a8;
+            color: white;
+        }
+        
+        .journal-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .journal-table th {
+            background-color: #e0eaef;
+            color: #2056a8;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .journal-table th:hover {
+            background-color: #c7dbe8;
+        }
+        
+        .journal-table th::after {
+            content: "⇵";
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        .journal-table th.asc::after {
+            content: "↑";
+        }
+        
+        .journal-table th.desc::after {
+            content: "↓";
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 5px;
+        }
+        
+        .pagination button {
+            background-color: white;
+            border: 1px solid #2056a8;
+            color: #2056a8;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination button.active {
+            background-color: #2056a8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MMN</h1>
+            <p>Moroccan Mathematicians Network</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Research Resources</h2>
+            <p>Essential tools and links for mathematics researchers</p>
+        </section>
+
+        <div class="resources-container">
+            <div class="resources-nav">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#research">Research Databases</a></li>
+                    <li><a href="#journals" class="active">Journals & Publications</a></li>
+                    <li><a href="#software">Software & Tools</a></li>
+                    <li><a href="#associations">Mathematical Associations</a></li>
+                    <li><a href="#teaching">Teaching Resources</a></li>
+                    <li><a href="#openaccess">Open Access Resources</a></li>
+                </ul>
+            </div>
+
+            <div class="resources-content">
+                <div id="journals" class="resource-section">
+                    <h3>Mathematics Journals</h3>
+                    <p>Comprehensive list of mathematics journals indexed in Scopus. Data sourced from SCImago Journal Rank (SJR) 2023.</p>
+                    
+                    <div class="journal-search">
+                        <input type="text" id="journalSearch" placeholder="Search journals by title, publisher, or subject...">
+                        <button id="searchButton">Search</button>
+                    </div>
+                    
+                    <div class="journal-filters">
+                        <button class="active">All</button>
+                        <button>Q1 Journals</button>
+                        <button>Q2 Journals</button>
+                        <button>Q3 Journals</button>
+                        <button>Q4 Journals</button>
+                        <button>Open Access</button>
+                    </div>
+                    
+                    <table class="journal-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>SJR</th>
+                                <th>Quartile</th>
+                                <th>H-index</th>
+                                <th>Publisher</th>
+                                <th>Country</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="https://annals.math.princeton.edu/" target="_blank">Annals of Mathematics</a></td>
+                                <td>9.217</td>
+                                <td>Q1</td>
+                                <td>108</td>
+                                <td>Princeton University</td>
+                                <td>United States</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.ams.org/journals/jams/all_issues.html" target="_blank">Journal of the American Mathematical Society</a></td>
+                                <td>6.875</td>
+                                <td>Q1</td>
+                                <td>89</td>
+                                <td>American Mathematical Society</td>
+                                <td>United States</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.springer.com/journal/40993" target="_blank">Research in Mathematical Sciences</a></td>
+                                <td>4.918</td>
+                                <td>Q1</td>
+                                <td>31</td>
+                                <td>Springer</td>
+                                <td>Germany</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.springer.com/journal/222" target="_blank">Inventiones Mathematicae</a></td>
+                                <td>4.813</td>
+                                <td>Q1</td>
+                                <td>114</td>
+                                <td>Springer</td>
+                                <td>Germany</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://projecteuclid.org/euclid.acta" target="_blank">Acta Mathematica</a></td>
+                                <td>4.759</td>
+                                <td>Q1</td>
+                                <td>87</td>
+                                <td>Institut Mittag-Leffler</td>
+                                <td>Sweden</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.sciencedirect.com/journal/journal-of-functional-analysis" target="_blank">Journal of Functional Analysis</a></td>
+                                <td>2.513</td>
+                                <td>Q1</td>
+                                <td>106</td>
+                                <td>Elsevier</td>
+                                <td>Netherlands</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://msp.org/ant/about/journal/about.html" target="_blank">Algebra and Number Theory</a></td>
+                                <td>2.398</td>
+                                <td>Q1</td>
+                                <td>30</td>
+                                <td>Mathematical Sciences Publishers</td>
+                                <td>United States</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.springer.com/journal/13163" target="_blank">Journal of Algebraic Combinatorics</a></td>
+                                <td>1.055</td>
+                                <td>Q2</td>
+                                <td>48</td>
+                                <td>Springer</td>
+                                <td>Netherlands</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.sciencedirect.com/journal/linear-algebra-and-its-applications" target="_blank">Linear Algebra and its Applications</a></td>
+                                <td>1.021</td>
+                                <td>Q2</td>
+                                <td>121</td>
+                                <td>Elsevier</td>
+                                <td>Netherlands</td>
+                                <td>Journal</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.sciencedirect.com/journal/discrete-mathematics" target="_blank">Discrete Mathematics</a></td>
+                                <td>0.725</td>
+                                <td>Q2</td>
+                                <td>85</td>
+                                <td>Elsevier</td>
+                                <td>Netherlands</td>
+                                <td>Journal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="pagination">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>...</button>
+                        <button>></button>
+                    </div>
+                    
+                    <p style="margin-top: 20px;">
+                        <strong>Note:</strong> This table shows a small subset of mathematics journals. For the complete list of mathematics journals with detailed metrics, please consult the <a href="https://www.scimagojr.com/journalrank.php?category=2600" target="_blank">SCImago Journal Rank (Mathematics)</a> website.
+                    </p>
+                </div>
+
+                <div id="research" class="resource-section">
+                    <h3>Research Databases</h3>
+                    <p>Essential databases and search engines for mathematical research.</p>
+                    
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Google Scholar</h4>
+                            <div class="description">
+                                Search engine for scholarly literature across disciplines, including mathematics. Allows tracking citations, authors, and publications.
+                            </div>
+                            <div class="tags">
+                                <span>Citation Index</span>
+                                <span>All Fields</span>
+                            </div>
+                            <div class="link">
+                                <a href="https://scholar.google.com/" target="_blank">Access Google Scholar</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Scopus</h4>
+                            <div class="description">
+                                Comprehensive abstract and citation database covering peer-reviewed literature, including scientific journals, books, and conference proceedings.
+                            </div>
+                            <div class="tags">
+                                <span>Citation Index</span>
+                                <span>Peer-Reviewed</span>
+                            </div>
+                            <div class="link">
+                                <a href="https://www.scopus.com/" target="_blank">Access Scopus</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Web of Science</h4>
+                            <div class="description">
+                                Citation database that gives access to multiple databases covering scholarly journals, books, proceedings, and publications in the sciences, social sciences, and arts and humanities.
+                            </div>
+                            <div class="tags">
+                                <span>Citation Index</span>
+                                <span>Impact Factor</span>
+                            </div>
+                            <div class="link">
+                                <a href="https://www.webofscience.com/" target="_blank">Access Web of Science</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>arXiv</h4>
+                            <div class="description">
+                                Open-access repository of electronic preprints and postprints for scientific papers in mathematics, physics, and related disciplines.
+                            </div>
+                            <div class="tags">
+                                <span>Preprints</span>
+                                <span>Open Access</span>
+                            </div>
+                            <div class="link">
+                                <a href="https://arxiv.org/archive/math" target="_blank">Access arXiv Mathematics</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>MathSciNet</h4>
+                            <div class="description">
+                                Electronic database published by the American Mathematical Society that provides access to reviews, abstracts, and bibliographic information for mathematical literature.
+                            </div>
+                            <div class="tags">
+                                <span>Reviews</span>
+                                <span>Mathematics Specific</span>
+                            </div>
+                            <div class="link">
+                                <a href="https://mathscinet.ams.org/" target="_blank">Access MathSciNet</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>zbMATH Open</h4>
+                            <div class="description">
+                                The world's most comprehensive database for mathematical publications, providing reviews and abstracts for articles, books, and conference proceedings.
+                            </div>
+                            <div class="tags">
+                                <span>Reviews</span>
+                                <span>Mathematics Specific</span>
+                                <span>Open Access</span>
+                            </div>
+                            <div class="link">
+                                <a href="https://zbmath.org/" target="_blank">Access zbMATH</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="software" class="resource-section">
+                    <h3>Software & Tools</h3>
+                    <p>Mathematical software and computational tools for research and teaching.</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MATLAB</td>
+                                <td>Computational</td>
+                                <td>Programming and numeric computing platform used for algorithm development, data analysis, visualization, and numerical computation</td>
+                                <td><a href="https://www.mathworks.com/products/matlab.html" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>Wolfram Mathematica</td>
+                                <td>Symbolic</td>
+                                <td>Computer algebra system with broad functionality for symbolic computation, numerical computation, visualization, and application development</td>
+                                <td><a href="https://www.wolfram.com/mathematica/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>SageMath</td>
+                                <td>Open Source</td>
+                                <td>Free open-source mathematics software system that builds on many existing packages, including NumPy, SciPy, matplotlib, Sympy, Maxima, and more</td>
+                                <td><a href="https://www.sagemath.org/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>R</td>
+                                <td>Statistics</td>
+                                <td>Language and environment for statistical computing and graphics widely used among statisticians and data miners</td>
+                                <td><a href="https://www.r-project.org/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>Python with NumPy/SciPy</td>
+                                <td>Programming</td>
+                                <td>Programming language with scientific computing libraries for mathematics, science, and engineering</td>
+                                <td><a href="https://numpy.org/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>GeoGebra</td>
+                                <td>Visualization</td>
+                                <td>Interactive geometry, algebra, statistics, and calculus application for learning and teaching</td>
+                                <td><a href="https://www.geogebra.org/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>Maple</td>
+                                <td>Symbolic</td>
+                                <td>Technical computing software for mathematics, engineering, and sciences with symbolic and numeric computation</td>
+                                <td><a href="https://www.maplesoft.com/products/Maple/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>LaTeX</td>
+                                <td>Document Preparation</td>
+                                <td>High-quality typesetting system for mathematical and scientific documents</td>
+                                <td><a href="https://www.latex-project.org/" target="_blank">Website</a></td>
+                            </tr>
+                            <tr>
+                                <td>Overleaf</td>
+                                <td>LaTeX Editor</td>
+                                <td>Online LaTeX editor that's easy to use with real-time collaboration and publishing tools</td>
+                                <td><a href="https://www.overleaf.com/" target="_blank">Website</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="associations" class="resource-section">
+                    <h3>Mathematical Associations</h3>
+                    <p>Major professional societies and organizations for mathematicians worldwide.</p>
+                    
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>International Mathematical Union (IMU)</h4>
+                            <div class="description">
+                                International non-governmental and non-profit scientific organization that promotes international cooperation in mathematics.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.mathunion.org/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>American Mathematical Society (AMS)</h4>
+                            <div class="description">
+                                Professional society promoting mathematical research, scholarship, and education through publications, meetings, advocacy, and other programs.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.ams.org/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>European Mathematical Society (EMS)</h4>
+                            <div class="description">
+                                Organization dedicated to the development of mathematics in Europe, promoting research, supporting mathematicians, and fostering connections.
+                            </div>
+                            <div class="link">
+                                <a href="https://euromathsoc.org/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>African Mathematical Union (AMU)</h4>
+                            <div class="description">
+                                Organization dedicated to promoting mathematics research and education in Africa, fostering collaborations, and supporting African mathematicians.
+                            </div>
+                            <div class="link">
+                                <a href="https://africamathunion.org/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Association for Women in Mathematics (AWM)</h4>
+                            <div class="description">
+                                Organization dedicated to encouraging women and girls in the mathematical sciences, developing opportunities, and promoting equity.
+                            </div>
+                            <div class="link">
+                                <a href="https://awm-math.org/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Mathematical Association of America (MAA)</h4>
+                            <div class="description">
+                                Professional society focusing on mathematics accessible at the undergraduate level, with emphasis on teaching, learning, and enjoying mathematics.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.maa.org/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="teaching" class="resource-section">
+                    <h3>Teaching Resources</h3>
+                    <p>Materials and platforms for mathematics education at various levels.</p>
+                    
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>MIT OpenCourseWare (Mathematics)</h4>
+                            <div class="description">
+                                Free and open publication of material from MIT courses, covering undergraduate and graduate mathematics courses.
+                            </div>
+                            <div class="link">
+                                <a href="https://ocw.mit.edu/search/?d=Mathematics" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Khan Academy (Mathematics)</h4>
+                            <div class="description">
+                                Free educational resources including lessons, exercises, and instructional videos covering K-12 mathematics, calculus, linear algebra, and more.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.khanacademy.org/math" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>3Blue1Brown</h4>
+                            <div class="description">
+                                Animated mathematics videos with an emphasis on visual understanding of concepts in linear algebra, calculus, and other fields.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.3blue1brown.com/" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>MAA Curriculum Inspirations</h4>
+                            <div class="description">
+                                Problems, solutions, and teaching resources inspired by mathematical competitions like the AMC.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.maa.org/math-competitions/teachers/curriculum-inspirations" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>NCTM Illuminations</h4>
+                            <div class="description">
+                                Resources for teaching and learning mathematics including interactive tools, lesson plans, and activities.
+                            </div>
+                            <div class="link">
+                                <a href="https://illuminations.nctm.org/" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Brilliant</h4>
+                            <div class="description">
+                                Interactive courses to build problem-solving skills in mathematics, science, and computer science.
+                            </div>
+                            <div class="link">
+                                <a href="https://brilliant.org/courses/math/" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="openaccess" class="resource-section">
+                    <h3>Open Access Resources</h3>
+                    <p>Freely available educational and research materials for mathematics.</p>
+                    
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <h4>Project Euclid</h4>
+                            <div class="description">
+                                Platform for independent and society journals, books, and conference proceedings in mathematics and statistics with many open access publications.
+                            </div>
+                            <div class="link">
+                                <a href="https://projecteuclid.org/" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>Mathematical Sciences Publishers (MSP)</h4>
+                            <div class="description">
+                                Non-profit publisher of high-quality mathematical journals with a focus on affordability and accessibility.
+                            </div>
+                            <div class="link">
+                                <a href="https://msp.org/" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>AMS Open Math Notes</h4>
+                            <div class="description">
+                                Collection of freely downloadable mathematical works in progress including course notes, textbooks, and research expositions.
+                            </div>
+                            <div class="link">
+                                <a href="https://www.ams.org/open-math-notes" target="_blank">Access Resources</a>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <h4>DOAJ (Mathematics journals)</h
