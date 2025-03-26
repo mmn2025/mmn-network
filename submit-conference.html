@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Conference - Moroccan Mathematicians Network</title>
+    <style>
+        :root {
+            --primary-color: #006633;
+            --secondary-color: #f8f9fa;
+            --accent-color: #b91c1c;
+            --border-color: #e2e8f0;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav {
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .page-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .intro-text {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-container {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-section-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .required:after {
+            content: " (*)";
+            color: red;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            margin-right: 0.5rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+        }
+        
+        .help-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Moroccan Mathematicians Network</h1>
+        <p>Connecting Mathematicians from Morocco and Around the World</p>
+    </header>
+    
+    <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">Members</a>
+        <a href="#">Events</a>
+        <a href="#">Resources</a>
+        <a href="#">Join MMN</a>
+        <a href="#">About Us</a>
+    </nav>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Home</a> / <a href="#">Events</a> / Submit a Conference
+        </div>
+        
+        <h1 class="page-title">Submit a Conference or Seminar</h1>
+        
+        <div class="intro-text">
+            <p>Submitting a conference or similar event is free. All submissions are reviewed by our editors. We reserve the right to make small corrections or reject them.</p>
+        </div>
+        
+        <div class="form-container">
+            <h2>Conference Inclusion Form</h2>
+            <p>After filling out the form, you will be able to preview the result and possibly modify your data before submitting. Fields marked with an asterisk (*) are mandatory.</p>
+            
+            <form>
+                <div class="form-section">
+                    <h3 class="form-section-title">Basic Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="acronym">Acronym</label>
+                        <input type="text" id="acronym" class="form-control" placeholder="e.g., ICMM">
+                        <div class="help-text">Short name/abbreviation of the conference</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title" class="required">Full Title</label>
+                        <input type="text" id="title" class="form-control" placeholder="e.g., International Conference on Mathematical Methods">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="required">Subject</label>
+                        <select id="subject" class="form-control">
+                            <option value="">-- Select a subject --</option>
+                            <option>Mathematical Logic and Foundations</option>
+                            <option>Automated Theorem Proving</option>
+                            <option>Algebra</option>
+                            <option>Number Theory, Arithmetic</option>
+                            <option>Geometry and Topology</option>
+                            <option>Graph Theory and Combinatorics</option>
+                            <option>Group Theory</option>
+                            <option>Analysis</option>
+                            <option>Calculus, Differential and Integral Equations</option>
+                            <option>Numerical Mathematics</option>
+                            <option>Applied Mathematics (general)</option>
+                            <option>Statistics, Game Theory</option>
+                            <option>Simulation</option>
+                            <option>Optimization, Operations Research</option>
+                            <option>Complex Networks</option>
+                            <option>Cryptography, Blockchain and Information Security</option>
+                            <option>Systems, Control and Automation</option>
+                            <option>Finance and Economic Sciences</option>
+                            <option>Neural Networks and Artificial Intelligence, Machine Learning</option>
+                            <option>Pattern Recognition and Image Processing, Computer Vision</option>
+                            <option>Courses and Events for Mathematics Students</option>
+                            <option>General Mathematics and Multidisciplinary Events</option>
+                            <option>Professional Body Meetings in Mathematics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additional-subjects">Additional Subjects (optional)</label>
+                        <select id="additional-subjects" class="form-control" multiple>
+                            <option>Mathematical Logic and Foundations</option>
+                            <option>Automated Theorem Proving</option>
+                            <option>Algebra</option>
+                            <option>Number Theory, Arithmetic</option>
+                            <option>Geometry and Topology</option>
+                            <option>Graph Theory and Combinatorics</option>
+                            <option>Group Theory</option>
+                            <option>Analysis</option>
+                            <option>Calculus, Differential and Integral Equations</option>
+                            <option>Numerical Mathematics</option>
+                            <option>Applied Mathematics (general)</option>
+                            <option>Statistics, Game Theory</option>
+                            <option>Simulation</option>
+                            <option>Optimization, Operations Research</option>
+                            <option>Complex Networks</option>
+                            <option>Cryptography, Blockchain and Information Security</option>
+                            <option>Systems, Control and Automation</option>
+                            <option>Finance and Economic Sciences</option>
+                            <option>Neural Networks and Artificial Intelligence, Machine Learning</option>
+                            <option>Pattern Recognition and Image Processing, Computer Vision</option>
+                            <option>Courses and Events for Mathematics Students</option>
+                            <option>General Mathematics and Multidisciplinary Events</option>
+                            <option>Professional Body Meetings in Mathematics</option>
+                        </select>
+                        <div class="help-text">Hold Ctrl/Cmd to select multiple options</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website" class="required">Conference Website</label>
+                        <input type="url" id="website" class="form-control" placeholder="https://www.example.com">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Event Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="event-type" class="required">Event Type</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="type-conference" name="event-type" value="conference">
+                                <label for="type-conference">Academic Conference / Symposium</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-seminar" name="event-type" value="seminar">
+                                <label for="type-seminar">Seminar / Workshop</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-training" name="event-type" value="training">
+                                <label for="type-training">Training Course</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-exhibition" name="event-type" value="exhibition">
+                                <label for="type-exhibition">Exhibition</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-school" name="event-type" value="school">
+                                <label for="type-school">Summer/Winter School</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-webinar" name="event-type" value="webinar">
+                                <label for="type-webinar">Online Conference / Webinar</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-other" name="event-type" value="other">
+                                <label for="type-other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alternative-type">Alternative Type</label>
+                        <input type="text" id="alternative-type" class="form-control" placeholder="If you chose 'Other' above, please specify">
+                        <div class="help-text">If you chose 'Other' in the event type list, you can suggest an alternative here.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organizer">Organizer</label>
+                        <input type="text" id="organizer" class="form-control" placeholder="e.g., 'University of Mathematics, Faculty of Sciences'">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start-date" class="required">Start Date</label>
+                        <input type="date" id="start-date" class="form-control">
+                        <div class="help-text">Format: DD.MM.YYYY</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="end-date" class="required">End Date</label>
+                        <input type="date" id="end-date" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city" class="required">City</label>
+                        <input type="text" id="city" class="form-control" placeholder="e.g., Casablanca">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country" class="required">Country</label>
+                        <select id="country" class="form-control">
+                            <option value="">-- Select a country --</option>
+                            <option value="virtual">Virtual (online)</option>
+                            <option value="morocco">Morocco</option>
+                            <option value="algeria">Algeria</option>
+                            <option value="tunisia">Tunisia</option>
+                            <option value="egypt">Egypt</option>
+                            <option value="france">France</option>
+                            <option value="usa">United States</option>
+                            <option
