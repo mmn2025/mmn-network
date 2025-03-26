@@ -21,46 +21,107 @@
             background-color: #f9f9f9;
         }
         
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+        /* Header and Navigation */
+        header {
+            background-color: #006633;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #006633;
+            background-color: #f5f5f5;
+        }
+        
+        .active-link {
+            color: #006633 !important;
+            border-bottom: 3px solid #006633;
+        }
+        
+        /* Mobile Nav Toggle */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Content Container */
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
             gap: 30px;
         }
         
-        /* Navigation/Sidebar Section (Left) */
-        .nav-section {
-            padding: 20px;
-        }
-        
-        .nav-section h1 {
-            color: #006633;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        
-        .nav-section p {
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .nav-section a {
-            display: block;
-            margin-bottom: 10px;
-            color: #006633;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-section a:hover {
-            color: #004d26;
-            text-decoration: underline;
-        }
-        
-        /* Content Section (Middle) */
+        /* Content Section */
         .content-section {
             padding: 20px;
             background-color: white;
@@ -126,8 +187,8 @@
             font-size: 22px;
         }
         
-        /* Photo Section (Right) */
-        .photo-section {
+        /* Sidebar Section */
+        .sidebar {
             padding: 20px;
         }
         
@@ -180,68 +241,76 @@
         /* Responsive adjustments */
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr 2fr;
-            }
-            
-            .photo-section {
-                grid-column: 1;
-                grid-row: 1;
-            }
-            
-            .nav-section {
-                grid-column: 2;
-                grid-row: 1;
-            }
-            
-            .content-section {
-                grid-column: span 2;
-                grid-row: 2;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .container {
                 grid-template-columns: 1fr;
             }
             
-            .photo-section, .nav-section, .content-section {
-                grid-column: 1;
+            .sidebar {
+                order: -1;
             }
             
-            .photo-section {
-                grid-row: 1;
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
                 text-align: center;
             }
             
-            .nav-section {
-                grid-row: 2;
-            }
-            
-            .content-section {
-                grid-row: 3;
+            .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Navigation Section (Left) -->
-        <div class="nav-section">
-            <h1>MMN</h1>
-            <p>Moroccan Mathematicians Network</p>
-            <p>Connecting Mathematical Minds Across Morocco</p>
-
-
-            <a href="submit-conference.html">Submit Conference</a>     
-            <a href="members_en.html">Members</a>
-            <a href="events_en.html">Events</a>
-            <a href="resources_en.html">Resources</a>
-           <a href="scholarships.html" class="nav-link">Scholarships - PhD, Postdoctoral and Master Programs</a>            
-            <a href="contact_en.html">Contact</a>
-                
+    <!-- Header Section with Logo -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="mmn.png" alt="MMN Logo">
+                <div class="logo-text">
+                    <h1>MMN</h1>
+                    <p>Moroccan Mathematicians Network</p>
+                </div>
+            </div>
+            <button class="mobile-nav-toggle">☰</button>
         </div>
-        
-        <!-- Content Section (Middle) -->
+    </header>
+    
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active-link">Home</a></li>
+                <li><a href="members_en.html">Members</a></li>
+                <li><a href="events_en.html">Events</a></li>
+                <li><a href="resources_en.html">Resources</a></li>
+                <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="submit-conference.html">Submit Conference</a></li>
+                <li><a href="contact_en.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Content Section -->
         <div class="content-section">
             <h2>Welcome to the Moroccan Mathematicians Network</h2>
             <p>A platform dedicated to promoting mathematical research in Morocco</p>
@@ -275,13 +344,8 @@
             </div>
         </div>
         
-        <!-- Photo Section (Right) -->
-        <div class="photo-section">
-            <!-- MMN Logo as an image file -->
-            <div style="text-align: center; margin-bottom: 30px;">
-                <img src="mmn.png" alt="MMN Logo" class="mmn-logo">
-            </div>
-            
+        <!-- Sidebar Section -->
+        <div class="sidebar">
             <!-- Social Media Links -->
             <div class="social-links">
                 <a href="https://www.linkedin.com/groups/14622272/" target="_blank">
@@ -311,5 +375,17 @@
             <a href="https://www.facebook.com/profile.php?id=61573770495839" target="_blank">Facebook</a>
         </div>
     </footer>
+
+    <!-- JavaScript for Mobile Navigation Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileNavToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 </html>
