@@ -1,87 +1,591 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact MMN</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
-
-    .form-container {
-      max-width: 600px;
-      margin: auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .form-container h2 {
-      text-align: center;
-      color: #003366;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 10px;
-      background-color: #003366;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #00509e;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Conference - Moroccan Mathematicians Network</title>
+    <style>
+        :root {
+            --primary-color: #006633;
+            --secondary-color: #f8f9fa;
+            --accent-color: #b91c1c;
+            --border-color: #e2e8f0;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+            color: white;
+            margin: 0;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: #f5f5f5;
+        }
+        
+        .active-link {
+            color: var(--primary-color) !important;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        /* Mobile Nav Toggle */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .page-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .intro-text {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-container {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-section-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .required:after {
+            content: " (*)";
+            color: red;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            margin-right: 0.5rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+        }
+        
+        .help-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header Section with Logo -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="mmn.png" alt="MMN Logo">
+                <div class="logo-text">
+                    <h1>MMN</h1>
+                    <p>Moroccan Mathematicians Network</p>
+                </div>
+            </div>
+            <button class="mobile-nav-toggle">☰</button>
+        </div>
+    </header>
+    
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="members_en.html">Members</a></li>
+                <li><a href="resources_en.html">Resources</a></li>
+                <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="submit-conference.html" class="active-link">Submit Conference</a></li>
+                <li><a href="contact_en.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="events_en.html">Events</a> / Submit a Conference
+        </div>
+        
+        <h1 class="page-title">Submit a Conference or Seminar</h1>
+        
+        <div class="intro-text">
+            <p>Submitting a conference or similar event is free. All submissions are reviewed by our editors. We reserve the right to make small corrections or reject them.</p>
+        </div>
+        
+        <div class="form-container">
+            <h2>Conference Inclusion Form</h2>
+            <p>After filling out the form, you will be able to preview the result and possibly modify your data before submitting. Fields marked with an asterisk (*) are mandatory.</p>
+            
+            <form>
+                <div class="form-section">
+                    <h3 class="form-section-title">Basic Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="acronym">Acronym</label>
+                        <input type="text" id="acronym" class="form-control" placeholder="e.g., ICMM">
+                        <div class="help-text">Short name/abbreviation of the conference</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title" class="required">Full Title</label>
+                        <input type="text" id="title" class="form-control" placeholder="e.g., International Conference on Mathematical Methods">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="required">Subject</label>
+                        <select id="subject" class="form-control">
+                            <option value="">-- Select a subject --</option>
+                            <option>Mathematical Logic and Foundations</option>
+                            <option>Automated Theorem Proving</option>
+                            <option>Algebra</option>
+                            <option>Number Theory, Arithmetic</option>
+                            <option>Geometry and Topology</option>
+                            <option>Graph Theory and Combinatorics</option>
+                            <option>Group Theory</option>
+                            <option>Analysis</option>
+                            <option>Calculus, Differential and Integral Equations</option>
+                            <option>Numerical Mathematics</option>
+                            <option>Applied Mathematics (general)</option>
+                            <option>Statistics, Game Theory</option>
+                            <option>Simulation</option>
+                            <option>Optimization, Operations Research</option>
+                            <option>Complex Networks</option>
+                            <option>Cryptography, Blockchain and Information Security</option>
+                            <option>Systems, Control and Automation</option>
+                            <option>Finance and Economic Sciences</option>
+                            <option>Neural Networks and Artificial Intelligence, Machine Learning</option>
+                            <option>Pattern Recognition and Image Processing, Computer Vision</option>
+                            <option>Courses and Events for Mathematics Students</option>
+                            <option>General Mathematics and Multidisciplinary Events</option>
+                            <option>Professional Body Meetings in Mathematics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additional-subjects">Additional Subjects (optional)</label>
+                        <select id="additional-subjects" class="form-control" multiple>
+                            <option>Mathematical Logic and Foundations</option>
+                            <option>Automated Theorem Proving</option>
+                            <option>Algebra</option>
+                            <option>Number Theory, Arithmetic</option>
+                            <option>Geometry and Topology</option>
+                            <option>Graph Theory and Combinatorics</option>
+                            <option>Group Theory</option>
+                            <option>Analysis</option>
+                            <option>Calculus, Differential and Integral Equations</option>
+                            <option>Numerical Mathematics</option>
+                            <option>Applied Mathematics (general)</option>
+                            <option>Statistics, Game Theory</option>
+                            <option>Simulation</option>
+                            <option>Optimization, Operations Research</option>
+                            <option>Complex Networks</option>
+                            <option>Cryptography, Blockchain and Information Security</option>
+                            <option>Systems, Control and Automation</option>
+                            <option>Finance and Economic Sciences</option>
+                            <option>Neural Networks and Artificial Intelligence, Machine Learning</option>
+                            <option>Pattern Recognition and Image Processing, Computer Vision</option>
+                            <option>Courses and Events for Mathematics Students</option>
+                            <option>General Mathematics and Multidisciplinary Events</option>
+                            <option>Professional Body Meetings in Mathematics</option>
+                        </select>
+                        <div class="help-text">Hold Ctrl/Cmd to select multiple options</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website" class="required">Conference Website</label>
+                        <input type="url" id="website" class="form-control" placeholder="https://www.example.com">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Event Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="event-type" class="required">Event Type</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="type-conference" name="event-type" value="conference">
+                                <label for="type-conference">Academic Conference / Symposium</label>
+                            </div>
 
-  <div class="form-container">
-    <h2>Contactez-nous</h2>
 
-    <form action="https://formsubmit.co/moroccan.mathematiciannetork@gmail.com" method="POST">
-      <!-- Champs invisibles nécessaires à Formsubmit -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://example.com/merci.html">
+                          <div class="radio-option">
+                                <input type="radio" id="type-seminar" name="event-type" value="seminar">
+                                <label for="type-seminar">Seminar / Workshop</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-training" name="event-type" value="training">
+                                <label for="type-training">Training Course</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-exhibition" name="event-type" value="exhibition">
+                                <label for="type-exhibition">Exhibition</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-school" name="event-type" value="school">
+                                <label for="type-school">Summer/Winter School</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-webinar" name="event-type" value="webinar">
+                                <label for="type-webinar">Online Conference / Webinar</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="type-other" name="event-type" value="other">
+                                <label for="type-other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alternative-type">Alternative Type</label>
+                        <input type="text" id="alternative-type" class="form-control" placeholder="If you chose 'Other' above, please specify">
+                        <div class="help-text">If you chose 'Other' in the event type list, you can suggest an alternative here.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organizer">Organizer</label>
+                        <input type="text" id="organizer" class="form-control" placeholder="e.g., 'University of Mathematics, Faculty of Sciences'">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start-date" class="required">Start Date</label>
+                        <input type="date" id="start-date" class="form-control">
+                        <div class="help-text">Format: DD.MM.YYYY</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="end-date" class="required">End Date</label>
+                        <input type="date" id="end-date" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city" class="required">City</label>
+                        <input type="text" id="city" class="form-control" placeholder="e.g., Casablanca">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country" class="required">Country</label>
+                        <select id="country" class="form-control">
+                            <option value="">-- Select a country --</option>
+                            <option value="virtual">Virtual (online)</option>
+                            <option value="morocco">Morocco</option>
+                            <option value="algeria">Algeria</option>
+                            <option value="tunisia">Tunisia</option>
+                            <option value="egypt">Egypt</option>
+                            <option value="france">France</option>
+                            <option value="usa">United States</option>
+                            <option value="canada">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="germany">Germany</option>
+                            <option value="spain">Spain</option>
+                            <option value="italy">Italy</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="theme">Conference Theme (brief)</label>
+                        <textarea id="theme" class="form-control" placeholder="Please describe the main theme of the conference in a short paragraph"></textarea>
+                        <div class="help-text">Limit yourself to a single paragraph of plain text, without HTML tags.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="keywords">Keywords (comma separated)</label>
+                        <input type="text" id="keywords" class="form-control" placeholder="e.g., algebra, geometry, analysis, machine learning">
+                        <div class="help-text">Avoid too lengthy lists: these are not intended for search engines and should be useful for visitors.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-name">Contact Point (e.g., 'Event Secretariat')</label>
+                        <input type="text" id="contact-name" class="form-control" placeholder="Avoid personal names">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" class="form-control" placeholder="contact@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-phone">Phone</label>
+                        <input type="tel" id="contact-phone" class="form-control" placeholder="+123 456 7890">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Your Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="your-name" class="required">Your Name</label>
+                        <input type="text" id="your-name" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="your-email" class="required">Your Email</label>
+                        <input type="email" id="your-email" class="form-control">
+                        <div class="help-text">This email will be used to send you a link to your event page.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="your-role">Your Role in the Conference Organization</label>
+                        <input type="text" id="your-role" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message for the Editor</label>
+                        <textarea id="message" class="form-control"></textarea>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">Submit Conference</button>
+                    <button type="reset" class="btn btn-secondary">Reset Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-      <!-- Champs visibles -->
-      <label for="name">Nom complet :</label>
-      <input type="text" id="name" name="name" required>
+    <footer class="footer">
+        <p>&copy; 2025 Moroccan Mathematicians Network</p>
+        <div class="social" style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+            <a href="https://www.linkedin.com/groups/14622272/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a>
+            <a href="https://x.com/MoroccanN44415" target="_blank" style="color: white; text-decoration: none;">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61573770495839" target="_blank" style="color: white; text-decoration: none;">Facebook</a>
+            <a href="https://teams.live.com/l/community/FAAbfEWFCWzAWEzLgI" target="_blank" style="color: white; text-decoration: none;">Teams</a>
+        </div>
+    </footer>
 
-      <label for="email">Adresse e-mail :</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="subject">Sujet :</label>
-      <input type="text" id="subject" name="subject" required>
-
-      <label for="message">Message :</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Envoyer</button>
-    </form>
-  </div>
-
+    <!-- JavaScript for Mobile Navigation Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileNavToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 </html>
