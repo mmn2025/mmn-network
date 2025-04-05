@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration for the Seminar - Moroccan Mathematicians Network</title>
+    <style>
+        :root {
+            --primary-color: #006633;
+            --secondary-color: #f8f9fa;
+            --accent-color: #b91c1c;
+            --border-color: #e2e8f0;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+            color: white;
+            margin: 0;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: #f5f5f5;
+        }
+        
+        .active-link {
+            color: var(--primary-color) !important;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        /* Mobile Nav Toggle */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .page-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .breadcrumb {
+            margin: 1rem 0;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .intro-text {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-container {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-section-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .required:after {
+            content: " (*)";
+            color: red;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            margin-right: 0.5rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+        }
+        
+        .help-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Logo -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="mmn.png" alt="MMN Logo">
+                <div class="logo-text">
+                    <h1>MMN</h1>
+                    <p>Moroccan Mathematicians Network</p>
+                </div>
+            </div>
+            <button class="mobile-nav-toggle">☰</button>
+        </div>
+    </header>
+    
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="members_en.html">Members</a></li>
+                <li><a href="resources_en.html">Resources</a></li>
+                <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="submit-conference.html">Submit Conference</a></li>
+                <li><a href="seminars.html" class="active-link">Seminars</a></li>
+                <li><a href="contact_en.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="seminars.html">Seminars</a> / Registration
+        </div>
+        
+        <h1 class="page-title">Registration for the Seminar</h1>
+        
+        <div class="intro-text">
+            <p>Please complete this form to register for the upcoming mathematics seminar. All fields marked with an asterisk (*) are required. Your information will be securely transmitted to the seminar organizers.</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="seminarRegistration" action="https://script.google.com/macros/s/AKfycbwUTI7zqVdm-QnGVYEGUw_BI3GbQtMrkDNGVrNkQJfHNXbBh7FtPFR9QTwkRpgR02g6/exec" method="POST">
+                <div class="form-section">
+                    <h3 class="form-section-title">Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName" class="required">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="required">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="institution" class="required">Institution/University</label>
+                        <input type="text" id="institution" name="institution" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="position" class="required">Position/Title</label>
+                        <select id="position" name="position" class="form-control" required>
+                            <option value="">-- Select your position --</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Associate Professor">Associate Professor</option>
+                            <option value="Assistant Professor">Assistant Professor</option>
+                            <option value="Postdoctoral Researcher">Postdoctoral Researcher</option>
+                            <option value="PhD Student">PhD Student</option>
+                            <option value="Master Student">Master Student</option>
+                            <option value="Undergraduate Student">Undergraduate Student</option>
+                            <option value="Researcher">Researcher</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="otherPosition">If Other, please specify</label>
+                        <input type="text" id="otherPosition" name="otherPosition" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Research Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="researchArea" class="required">Research Area/Interests</label>
+                        <select id="researchArea" name="researchArea" class="form-control" required>
+                            <option value="">-- Select your primary research area --</option>
+                            <option value="Algebra">Algebra</option>
+                            <option value="Number Theory">Number Theory</option>
+                            <option value="Analysis">Analysis</option>
+                            <option value="Geometry">Geometry</option>
+                            <option value="Topology">Topology</option>
+                            <option value="Probability and Statistics">Probability and Statistics</option>
+                            <option value="Applied Mathematics">Applied Mathematics</option>
+                            <option value="Discrete Mathematics">Discrete Mathematics</option>
+                            <option value="Mathematical Physics">Mathematical Physics</option>
+                            <option value="Logic and Foundations">Logic and Foundations</option>
+                            <option value="Computational Mathematics">Computational Mathematics</option>
+                            <option value="Mathematical Biology">Mathematical Biology</option>
+                            <option value="Financial Mathematics">Financial Mathematics</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="otherArea">If Other, please specify</label>
+                        <input type="text" id="otherArea" name="otherArea" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalAreas">Additional Research Areas (optional)</label>
+                        <input type="text" id="additionalAreas" name="additionalAreas" class="form-control" placeholder="e.g., Algebraic Geometry, Representation Theory, etc.">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Presentation Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="presentationInterest" class="required">Are you interested in presenting a talk?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="presentation-yes" name="presentationInterest" value="Yes">
+                                <label for="presentation-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="presentation-no" name="presentationInterest" value="No" checked>
+                                <label for="presentation-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="presentation-details" style="display: none;">
+                        <div class="form-group">
+                            <label for="presentationTitle">Tentative Title of Presentation</label>
+                            <input type="text" id="presentationTitle" name="presentationTitle" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="abstract">Abstract</label>
+                            <textarea id="abstract" name="abstract" class="form-control" placeholder="Please provide a brief description of your proposed presentation (maximum 300 words)"></textarea>
+                            <div class="help-text">Abstract should include the motivation, methodology, and key results of your work.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="presentationType">Preferred Presentation Format</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="format-oral" name="presentationType" value="Oral Presentation" checked>
+                                    <label for="format-oral">Oral Presentation</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="format-poster" name="presentationType" value="Poster">
+                                    <label for="format-poster">Poster</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="format-either" name="presentationType" value="Either">
+                                    <label for="format-either">Either</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="dietaryRestrictions">Dietary Restrictions</label>
+                        <input type="text" id="dietaryRestrictions" name="dietaryRestrictions" class="form-control" placeholder="e.g., Vegetarian, Vegan, Gluten-free, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequirements">Special Requirements or Accommodations</label>
+                        <textarea id="specialRequirements" name="specialRequirements" class="form-control" placeholder="Please specify any special needs or accommodations"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalComments">Additional Comments</label>
+                        <textarea id="additionalComments" name="additionalComments" class="form-control"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title">Confirmation</h3>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="confirmAttendance" name="confirmAttendance" required>
+                            <label for="confirmAttendance" class="required">I confirm my intention to attend the seminar if my registration is accepted</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                            <label for="dataConsent" class="required">I consent to the collection and processing of my personal data for the purpose of seminar registration</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="hidden" name="formDataNameOrder" value='{"fullName":"1","email":"2","institution":"3","position":"4","otherPosition":"5","researchArea":"6","otherArea":"7","additionalAreas":"8","presentationInterest":"9","presentationTitle":"10","abstract":"11","presentationType":"12","dietaryRestrictions":"13","specialRequirements":"14","additionalComments":"15","confirmAttendance":"16","dataConsent":"17"}'>
+                <input type="hidden" name="formGoogleSheetName" value="registrations">
+                <input type="hidden" name="formGoogleSendEmail" value="moroccan.mathematiciannetork@gmail.com">
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" id="submitButton">Submit Registration</button>
+                    <button type="reset" class="btn btn-secondary">Reset Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Moroccan Mathematicians Network</p>
+        <div class="social" style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+            <a href="https://www.linkedin.com/groups/14622272/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a>
+            <a href="https://x.com/MoroccanN44415" target="_blank" style="color: white; text-decoration: none;">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61573770495839" target="_blank" style="color: white; text-decoration: none;">Facebook</a>
+            <a href="https://teams.live.com/l/community/FAAbfEWFCWzAWEzLgI" target="_blank" style="color: white; text-decoration: none;">Teams</a>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for form functionality and mobile navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileNavToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+            });
+            
+            // Presentation Details Toggle
+            const presentationYes = document.getElementById('presentation-yes');
+            const presentationNo = document.getElementById('presentation-no');
+            const presentationDetails = document.getElementById('presentation-details');
+            
+            presentationYes.addEventListener('change', function() {
+                if (this.checked) {
+                    presentationDetails.style.display = 'block';
+                }
+            });
+            
+            presentationNo.addEventListener('change', function() {
+                if (this.checked) {
+                    presentationDetails.style.display = 'none';
+                }
+            });
+            
+            // Form Submission Handler
+            const form = document.getElementById('seminarRegistration');
+            const submitButton = document.getElementById('submitButton');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Disable submit button to prevent double submission
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting...';
+                
+                // Collect form data
+                const formData = new FormData(form);
+                
+                // Submit form using fetch API
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    mode: 'no-cors'
+                })
+                .then(response => {
+                    // Show success message and reset form
+                    alert('Thank you for your registration! Your information has been successfully submitted.');
+                    form.reset();
+                    presentationDetails.style.display = 'none';
+                })
+                .catch(error => {
+                    // Show error message
+                    alert('There was an error submitting your registration. Please try again or contact us directly at moroccan.mathematiciannetork@gmail.com');
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    // Re-enable submit button
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit Registration';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
